@@ -27,10 +27,17 @@ ul {
   padding: 0;
 }
 
+.row {
+  padding: 0.25rem;
+}
+
 .user-info {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 0.15rem;
+}
+
+.user-info h5 {
+  margin: 0;
 }
 
 .btn-group {

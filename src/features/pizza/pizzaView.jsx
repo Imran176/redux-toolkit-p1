@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import Button from "react-bootstrap/Button";
+
 import { ordered, restocked } from "./pizzaSlice";
 
 const pizzaView = () => {
@@ -10,13 +12,20 @@ const pizzaView = () => {
   return (
     <div>
       <h2>Number of Pizzas - {numOfPizzas}</h2>
-      <button onClick={() => dispatch(ordered(value))}>Order Pizza</button>
+      <Button variant="success" onClick={() => dispatch(ordered(value))}>
+        Order Pizza
+      </Button>
       <input
         type="number"
         value={value}
         onChange={(e) => setValue(parseInt(e.target.value))}
       />
-      <button onClick={() => dispatch(restocked(value))}>Restock Pizza</button>
+      <Button
+        variant="outline-primary"
+        onClick={() => dispatch(restocked(value))}
+      >
+        Restock Pizza
+      </Button>
     </div>
   );
 };

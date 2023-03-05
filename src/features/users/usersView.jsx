@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { fetchUsers } from "../users/usersSlice";
 
 const usersView = () => {
@@ -25,17 +29,22 @@ const usersView = () => {
         </>
       ) : null}
       {!usersList.loading && usersList.users.length ? (
-        <ul>
+        <Container>
           {usersList.users.map((user, index) => (
-            <li key={index}>
-              <div className="user-info">
-                <h5>Name: </h5> {user.name}
-                <h5>Email: </h5> {user.email}
-                <h5>Website: </h5> {user.website}
-              </div>
-            </li>
+            <Row key={index}>
+              <Col xs={6} md={6}>
+                <div className="user-info">
+                  <h5>Name: </h5> <span>{user.name}</span>
+                </div>
+              </Col>
+              <Col xs={6} md={6}>
+                <div className="user-info">
+                  <h5>Email: </h5> <span>{user.email}</span>
+                </div>
+              </Col>
+            </Row>
           ))}
-        </ul>
+        </Container>
       ) : null}
       <hr />
     </div>

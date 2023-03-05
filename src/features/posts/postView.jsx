@@ -17,13 +17,18 @@ const postView = () => {
       <h3>Fetching Data Using Redux-Saga</h3>
       <div className="btn-group">
         <Button
-          variant="outline-info"
+          variant="outline-primary"
+          disabled={postsList.loading}
           onClick={() => dispatch(fetchPostsStart())}
         >
-          Fetch Posts
+          {postsList.loading ? "Loading…" : "Fetch Posts"}
         </Button>
-        <Button variant="success" onClick={() => dispatch(fetchPhotosStart())}>
-          Fetch Photos
+        <Button
+          variant="success"
+          disabled={postsList.loading}
+          onClick={() => dispatch(fetchPhotosStart())}
+        >
+          {postsList.loading ? "Loading…" : "Fetch Photos"}
         </Button>
       </div>
 
@@ -46,8 +51,8 @@ const postView = () => {
         <Container>
           <Row>
             {postsList.photos.map((photo, index) => (
-              <Col xs={6} md={4} key={index}>
-                <img src={photo.thumbnailUrl} alt="" />
+              <Col xs={6} md={6} key={index}>
+                <img src={photo.url} alt="" />
               </Col>
             ))}
           </Row>
