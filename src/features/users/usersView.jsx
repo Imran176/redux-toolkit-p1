@@ -14,7 +14,7 @@ const usersView = () => {
   return (
     <div>
       <hr />
-      <h3>Fetching Users Using Redux-Thunk</h3>
+      <h3>Fetching User's Data Using Redux-Thunk</h3>
       {/* <button onClick={() => dispatch(fetchUsers())}>Fetch Users</button> */}
 
       {usersList.loading && <div>Loading...</div>}
@@ -29,8 +29,9 @@ const usersView = () => {
           {usersList.users.map((user, index) => (
             <li key={index}>
               <div className="user-info">
-                <h4>Name: </h4> {user.name}
-                <h4>Email: </h4> {user.email}
+                <h5>Name: </h5> {user.name}
+                <h5>Email: </h5> {user.email}
+                <h5>Website: </h5> {user.website}
               </div>
             </li>
           ))}

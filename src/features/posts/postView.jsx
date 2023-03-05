@@ -1,6 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { fetchPostsStart, fetchPhotosStart } from "./postSlice";
 
 const postView = () => {
@@ -10,8 +15,17 @@ const postView = () => {
   return (
     <div>
       <h3>Fetching Data Using Redux-Saga</h3>
-      <button onClick={() => dispatch(fetchPostsStart())}>Fetch Posts</button>
-      <button onClick={() => dispatch(fetchPhotosStart())}>Fetch Photos</button>
+      <div className="btn-group">
+        <Button
+          variant="outline-info"
+          onClick={() => dispatch(fetchPostsStart())}
+        >
+          Fetch Posts
+        </Button>
+        <Button variant="success" onClick={() => dispatch(fetchPhotosStart())}>
+          Fetch Photos
+        </Button>
+      </div>
 
       {postsList.loading && <div>Loading...</div>}
 
@@ -29,13 +43,15 @@ const postView = () => {
           ))}
         </ul>
       ) : !postsList.loading && postsList.photos.length ? (
-        <ul>
-          {postsList.photos.map((photo, index) => (
-            <li key={index}>
-              <img src={photo.url} alt="" />
-            </li>
-          ))}
-        </ul>
+        <Container>
+          <Row>
+            {postsList.photos.map((photo, index) => (
+              <Col xs={6} md={4} key={index}>
+                <img src={photo.thumbnailUrl} alt="" />
+              </Col>
+            ))}
+          </Row>
+        </Container>
       ) : null}
     </div>
   );

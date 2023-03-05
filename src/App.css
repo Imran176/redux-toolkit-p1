@@ -33,6 +33,12 @@ ul {
   gap: 1rem;
 }
 
+.btn-group {
+  display: flex;
+  /* gap: 1rem; */
+  margin-bottom: 1rem;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
