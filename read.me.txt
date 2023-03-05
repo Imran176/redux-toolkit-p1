@@ -1,0 +1,8 @@
+#create project using:
+
+npm create vite@latest app-name
+
+
+#run project using:
+
+npm run dev
