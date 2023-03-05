@@ -18,6 +18,21 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
